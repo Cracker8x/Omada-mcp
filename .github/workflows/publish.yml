@@ -61,7 +61,7 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: "24"
-          cache: "npm"
+          package-manager-cache: false
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
@@ -79,10 +79,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Publish to npm
+      - name: Publish to npm with trusted publishing
         run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-docker:
     needs: validate
