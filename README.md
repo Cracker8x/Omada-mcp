@@ -89,7 +89,7 @@ The server reads configuration from environment variables. See `.env.example` fo
 | `OMADA_CLIENT_ID` | Yes | - | OAuth client ID from Omada Platform Integration |
 | `OMADA_CLIENT_SECRET` | Yes | - | OAuth client secret |
 | `OMADA_OMADAC_ID` | Yes | - | Omada controller ID (`omadacId`) |
-| `OMADA_SITE_ID` | No | - | Optional default site ID |
+| `OMADA_SITE_ID` | No | - | Optional default site ID. When omitted and no tool-level site ID is supplied, a single available site is selected automatically; zero or multiple sites return an error. |
 | `OMADA_STRICT_SSL` | No | `true` | Enforce TLS certificate validation |
 | `OMADA_TIMEOUT` | No | `30000` | HTTP timeout in milliseconds |
 
