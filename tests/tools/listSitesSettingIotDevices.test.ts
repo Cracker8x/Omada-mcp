@@ -55,7 +55,10 @@ describe('tools/listSitesSettingIotDevices', () => {
             const result = await toolHandler({ page: 1, pageSize: 10 }, { sessionId: 'test-session' });
 
             expect(mockClient.listSitesSettingIotDevices).toHaveBeenCalledWith(undefined, 1, 10, undefined);
-            expect(result).toEqual({ content: [{ type: 'text', text: JSON.stringify(mockData, null, 2) }] });
+            expect(result).toEqual({
+                structuredContent: mockData,
+                content: [{ type: 'text', text: JSON.stringify(mockData, null, 2) }],
+            });
         });
 
         it('should pass siteId when provided', async () => {
